@@ -1,6 +1,6 @@
 import styles from './App.module.css';
 import { useState } from 'react';
-import { FaCloud, FaTint, FaWind, FaThermometerHalf, FaMapMarkerAlt, FaGithub, FaLinkedin, FaLocationArrow, FaCloudscale  } from 'react-icons/fa';
+import { FaCloud, FaTint, FaWind, FaThermometerHalf, FaMapMarkerAlt, FaGithub, FaLinkedin, FaLocationArrow, FaCloudscale } from 'react-icons/fa';
 
 interface WeatherData {
   coord: { lon: number, lat: number };
@@ -28,11 +28,13 @@ interface WeatherData {
   };
   timezone: number;
   name: string;
+
 }
 
 function App() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [city, setCity] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
   const APIKEY = import.meta.env.VITE_APIKEY;
   const LANG = import.meta.env.VITE_LANG;
@@ -40,6 +42,7 @@ function App() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCity(event.target.value);
+    setError(null); 
   };
 
   const capitalizeWords = (str: string) => {
@@ -47,12 +50,22 @@ function App() {
   };
 
   const fetchData = async () => {
+    if (!city.trim()) {
+      setError("Por favor, ingrese una ciudad.");
+      setWeatherData(null); 
+      return;
+    }
+
     try {
       const response = await fetch(URL);
+      if (!response.ok) {
+        throw new Error("No se pudo obtener los datos del clima. Verifique el nombre de la ciudad.");
+      }
       const data = await response.json();
       setWeatherData(data);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
+      setError(error.message);
     }
   };
 
@@ -71,6 +84,8 @@ function App() {
           <button className={styles.button} onClick={fetchData}>Consultar</button>
         </div>
       </nav>
+
+      {error && <div className={styles.error}>{error}</div>}
 
       <div className={styles.grid}>
         {weatherData && (

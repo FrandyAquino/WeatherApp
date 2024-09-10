@@ -202,3 +202,10 @@ html, body {
 .socialIcon:hover {
   color: #1E90FF;
 }
+
+.error {
+  color: red;
+  font-size: 16px;
+  margin: 10px 0;
+  text-align: center;
+}
