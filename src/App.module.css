@@ -1,5 +1,5 @@
-
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -7,7 +7,9 @@ html, body {
 .container {
   display: flex;
   flex-direction: column;
+  min-height: 100vh; /* Ocupa al menos el 100% de la altura de la ventana */
   font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
 .navbar {
@@ -16,6 +18,7 @@ html, body {
   border-radius: 15px;
   padding: 15px;
   margin-bottom: 20px;
+  width: 100%;
   max-width: 100%;
   top: 0;
   left: 0;
@@ -143,57 +146,24 @@ html, body {
   }
 
   .bentoGrid {
-    grid-template-columns: 1fr 1fr; 
-  }
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr; 
-  }
-}
-
-@media (max-width: 600px) {
-  .navContent {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .grid {
-    margin-top: 50px; 
-  }
-
-  .searchBar {
-    width: 70%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   }
 }
 
 .footer {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
+  background-color: #f1f1f1;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  bottom: 0; 
-  left: 0;
-  right: 0;
-}
-
-.footer p {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #333;
+  border-top: 1px solid #ddd;
 }
 
 .socialLinks {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+  margin-top: 10px;
 }
 
 .socialIcon {
   font-size: 24px;
+  margin: 0 10px;
   color: #333;
   transition: color 0.3s ease;
 }
