@@ -1,0 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  height: 100vh;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.card {
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.input {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  background: #0072ff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: #005bb5;
+}
+
+.mainCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cityName {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.mainTemp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.mainIcon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.tempValue {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.weatherDesc {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.value {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
