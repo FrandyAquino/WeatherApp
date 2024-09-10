@@ -1,3 +1,5 @@
+/* App.module.css */
+
 html, body {
   height: 100%;
   margin: 0;
@@ -7,9 +9,8 @@ html, body {
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ocupa al menos el 100% de la altura de la ventana */
+  min-height: 100vh; 
   font-family: Arial, sans-serif;
-  padding: 20px;
 }
 
 .navbar {
@@ -18,7 +19,6 @@ html, body {
   border-radius: 15px;
   padding: 15px;
   margin-bottom: 20px;
-  width: 100%;
   max-width: 100%;
   top: 0;
   left: 0;
@@ -75,7 +75,7 @@ html, body {
   max-width: 900px; 
   margin-left: auto;
   margin-right: auto;
-  flex: 1; 
+  flex: 1; /* Permite que la sección crezca y empuje el footer hacia abajo */
 }
 
 .mainCard {
@@ -146,24 +146,55 @@ html, body {
   }
 
   .bentoGrid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media (max-width: 600px) {
+  .navContent {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .grid {
+    margin-top: 50px; 
+  }
+
+  .searchBar {
+    width: 70%;
   }
 }
 
 .footer {
-  background-color: #f1f1f1;
-  padding: 20px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
   text-align: center;
-  border-top: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .socialLinks {
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 .socialIcon {
   font-size: 24px;
-  margin: 0 10px;
   color: #333;
   transition: color 0.3s ease;
 }
